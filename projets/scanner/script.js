@@ -83,3 +83,39 @@ Html5Qrcode.getCameras()
     // handle err
     console.error("Error getting cameras: ", err);
   });
+
+// === Photobooth ===
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const photo = document.getElementById("photo");
+const snap = document.getElementById("snap");
+const download = document.getElementById("download");
+const filter = document.getElementById("filter");
+
+// Accès à la webcam
+navigator.mediaDevices
+  .getUserMedia({ video: true })
+  .then((stream) => {
+    video.srcObject = stream;
+  })
+  .catch((error) => {
+    console.error("Erreur d'accès à la webcam :", error);
+  });
+
+// Changer filtre
+filter.addEventListener("change", () => {
+  video.style.filter = filter.value;
+});
+
+// Capture
+snap.addEventListener("click", () => {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext("2d");
+  ctx.filter = filter.value;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const dataURL = canvas.toDataURL("image/png");
+  photo.src = dataURL;
+  download.href = dataURL;
+  download.disabled = false;
+});

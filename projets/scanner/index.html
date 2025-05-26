@@ -9,6 +9,23 @@
   </head>
   <body>
     <main>
+      <section id="photobooth">
+        <h2>Photobooth</h2>
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas" style="display: none"></canvas>
+        <div id="controls">
+          <select id="filter">
+            <option value="none">Aucun filtre</option>
+            <option value="grayscale(100%)">Noir & Blanc</option>
+            <option value="sepia(100%)">Sépia</option>
+            <option value="invert(100%)">Inversé</option>
+          </select>
+          <button id="snap">📸 Prendre une photo</button>
+          <a id="download" download="photo.png" disabled>💾 Télécharger</a>
+        </div>
+        <img id="photo" alt="Votre photo apparaîtra ici" />
+      </section>
+
       <div id="reader" class="video-scanner"></div>
       <select name="camera" id="camera-select"></select>
 
