@@ -6,6 +6,12 @@
     <title>Scanner QR Code</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -13,22 +19,29 @@
         <h2>Photobooth</h2>
         <video id="video" autoplay playsinline></video>
         <canvas id="canvas" style="display: none"></canvas>
-        <div id="controls">
-          <select id="filter">
-            <option value="none">Aucun filtre</option>
-            <option value="grayscale(100%)">Noir & Blanc</option>
-            <option value="sepia(100%)">Sépia</option>
-            <option value="invert(100%)">Inversé</option>
-          </select>
-          <button id="snap">📸 Prendre une photo</button>
-          <a id="download" download="photo.png" disabled>💾 Télécharger</a>
+        <div class="controls">
+          <div id="controls">
+            <select id="filter">
+              <option value="none">Aucun filtre</option>
+              <option value="grayscale">Niveaux de gris</option>
+              <option value="sepia">Sépia</option>
+              <option value="invert">Inverser les couleurs</option>
+              <option value="blur">Flou</option>
+              <option value="brightness">Luminosité</option>
+              <option value="rotation">rotation</option>
+              <option value="flip">Retourner</option>
+              <option value="shrek">Shrek</option>
+            </select>
+            <button id="snap">📸 Prendre une photo</button>
+          </div>
+          <img id="photo" alt="Votre photo apparaîtra ici" />
         </div>
-        <img id="photo" alt="Votre photo apparaîtra ici" />
       </section>
 
+      <h1 class="scanner">Scanner QR Code</h1>
+      <p class="scanner">Utilisez votre caméra pour scanner un QR Code.</p>
       <div id="reader" class="video-scanner"></div>
       <select name="camera" id="camera-select"></select>
-
       <div id="result" class="result-screen">
         <div class="result-content">
           <h2>Résultat du scan :</h2>

@@ -104,7 +104,8 @@ navigator.mediaDevices
 
 // Changer filtre
 filter.addEventListener("change", () => {
-  video.style.filter = filter.value;
+  // video.style.filter = filter.value;
+  video.dataset.theme = filter.value;
 });
 
 // Capture
@@ -116,6 +117,9 @@ snap.addEventListener("click", () => {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
   const dataURL = canvas.toDataURL("image/png");
   photo.src = dataURL;
-  download.href = dataURL;
-  download.disabled = false;
+  // download.href = dataURL;
+  // download.disabled = false;
+
+  photo.dataset.theme = filter.value;
+  console.log("Photo capturée avec le filtre :", filter.value);
 });

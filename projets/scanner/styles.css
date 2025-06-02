@@ -5,9 +5,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: Pixelify sans;
+  background-color: #0a0721;
+  color: #0a0721;
+  background-image: url(Union.png);
 }
 
 main {
@@ -17,13 +18,54 @@ main {
   align-items: center;
   min-height: 100dvh;
 }
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
 
 .video-scanner {
   width: 90vw;
   max-width: 600px;
-  border: 4px solid #333;
-  border-radius: 0.5rem;
+  border: 20px solid #f4b2e0;
+  margin: 10px;
   overflow: hidden;
+}
+
+[data-theme="rotation"] {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+[data-theme="blur"] {
+  filter: blur(5px);
+}
+[data-theme="invert"] {
+  filter: invert(1);
+}
+[data-theme="grayscale"] {
+  filter: grayscale(1);
+}
+[data-theme="sepia"] {
+  filter: sepia(1);
+}
+[data-theme="brightness"] {
+  filter: brightness(3.5);
+}
+[data-theme="flip"] {
+  transform: scaleX(-1);
+  transform: scaleY(-1);
+}
+[data-theme="shrek"] {
+  filter: contrast(2);
+  filter: hue-rotate(80deg);
 }
 
 .result-screen {
@@ -40,26 +82,33 @@ main {
 }
 
 .result-content {
-  background: white;
+  background-color: #f4b2e0;
   padding: 1rem;
-  border-radius: 0.5rem;
+}
+#back-button {
+  background-color: #0a0721;
+  color: #f4b2e0;
+  margin-top: 10px;
+  font-family: Pixelify sans;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 select:empty {
   display: none;
 }
 #photobooth {
-  margin-top: 2rem;
+  background-color: #f4b2e0;
+  margin: 50px;
   padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 12px;
   text-align: center;
 }
 
 #video {
   width: 320px;
   height: 240px;
-  border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -75,6 +124,59 @@ select:empty {
   margin-top: 10px;
   width: 320px;
   height: 240px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 5px solid #000000;
+}
+#snap {
+  font-family: Pixelify sans;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  width: 366px;
+  height: 58px;
+  flex-shrink: 0;
+  background-color: #0a0721;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+#filter {
+  font-family: pixelify sans;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  width: 150px;
+  height: 58px;
+  flex-shrink: 0;
+  background-color: #0a0721;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+#camera-select {
+  font-family: Pixelify sans;
+  padding: 10px;
+  background-color: #f4b2e0;
+  color: #0a0721;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 100px;
+}
+
+.scanner {
+  color: #f4b2e0;
+  font-family: Pixelify sans;
+  font-size: 24px;
+  text-align: center;
+  background-color: #0a0721;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
